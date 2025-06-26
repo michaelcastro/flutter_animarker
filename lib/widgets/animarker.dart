@@ -360,11 +360,7 @@ class AnimarkerState extends State<Animarker> with TickerProviderStateMixin {
 
   @override
   void didUpdateWidget(Animarker oldWidget) {
-    print(
-      'didUpdateWidget: ${oldWidget.markers.map((e) => e.rotation).join(',')}',
-    );
-    if (oldWidget.markers.length > widget.markers.length) {
-      print('didUpdateWidget: updateMarkers');
+    if (oldWidget.markers != widget.markers) {
       widget.updateMarkers(oldWidget.markers, widget.markers);
       return;
     }
